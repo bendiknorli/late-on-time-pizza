@@ -1,0 +1,214 @@
+/* Navbar Styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+/* Logo */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.2s ease;
+    font-weight: 600;
+    font-size: 1.125rem;
+    letter-spacing: -0.025em;
+}
+
+.navbar-logo:hover {
+    color: white;
+}
+
+.navbar-logo-icon {
+    width: 28px;
+    height: 28px;
+    color: #fbbf24;
+    filter: drop-shadow(0 2px 4px rgba(251, 191, 36, 0.3));
+}
+
+.navbar-logo-text {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+/* Navigation Menu */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-nav-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-nav-item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.navbar-nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.navbar-nav-item:hover:before {
+    left: 100%;
+}
+
+.navbar-nav-item.active {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.navbar-nav-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* User Section */
+.navbar-user-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-user-email {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.navbar-sign-out-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background: none;
+    border: none;
+    color: #fca5a5;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.navbar-sign-out-btn:hover {
+    background: rgba(220, 38, 38, 0.1);
+    color: #f87171;
+    transform: translateY(-1px);
+}
+
+.navbar-sign-in-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: #fbbf24;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    background: rgba(251, 191, 36, 0.1);
+    transition: all 0.2s ease;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-sign-in-btn:hover {
+    background: rgba(251, 191, 36, 0.2);
+    color: #f59e0b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0 1rem;
+        height: 56px;
+    }
+
+    .navbar-logo-text {
+        display: none;
+    }
+
+    .navbar-nav {
+        gap: 0.25rem;
+    }
+
+    .navbar-nav-item {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .navbar-nav-item span {
+        display: none;
+    }
+
+    .navbar-user-section {
+        gap: 0.5rem;
+        margin-left: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .navbar-user-email {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-nav-item {
+        padding: 0.4rem;
+    }
+}

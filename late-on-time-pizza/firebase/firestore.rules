@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() { return request.auth != null; }
+    function userId() { return request.auth.uid; }
+
+    match /groups/{groupId} {
+      allow read: if isSignedIn() && (userId() in resource.data.memberIds);
+      allow write: if isSignedIn() && (userId() == resource.data.adminId);
+    }
+
+    match /groups/{groupId}/meetings/{meetingId} {
+      allow read: if isSignedIn() && (userId() in get(/databases/$(database)/documents/groups/$(groupId)).data.memberIds);
+      allow create: if isSignedIn() && (
+        get(/databases/$(database)/documents/groups/$(groupId)).data.allowEveryoneEnterMinutes == true ||
+        userId() == get(/databases/$(database)/documents/groups/$(groupId)).data.adminId
+      );
+      allow update, delete: if isSignedIn() && userId() == get(/databases/$(database)/documents/groups/$(groupId)).data.adminId;
+    }
+  }
+}
