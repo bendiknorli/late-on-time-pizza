@@ -1,0 +1,266 @@
+/* Groups Page Styles */
+
+.groups-page {
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.groups-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.groups-title-section h1 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.groups-title-section p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.125rem;
+}
+
+.create-group-btn {
+    background-color: #f59e0b;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.create-group-btn:hover {
+    background-color: #d97706;
+}
+
+.groups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.group-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.group-card:hover {
+    transform: translateY(-2px);
+}
+
+.group-card-header {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.group-card-emoji {
+    font-size: 1.875rem;
+}
+
+.group-card-content {
+    padding: 1.5rem;
+}
+
+.group-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.group-card-title h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.group-card-crown {
+    color: #f59e0b;
+    font-size: 1.125rem;
+}
+
+.group-card-members {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+}
+
+.group-card-pizza-stats {
+    margin-bottom: 1.5rem;
+}
+
+.group-card-pizza-number {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: #f59e0b;
+    margin-bottom: 0.25rem;
+}
+
+.group-card-pizza-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+}
+
+.group-card-btn {
+    width: 100%;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.group-card-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.create-new-group-card {
+    border: 2px dashed rgba(245, 158, 11, 0.5);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 280px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.create-new-group-card:hover {
+    border-color: rgba(245, 158, 11, 0.7);
+}
+
+.create-new-group-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: rgba(245, 158, 11, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.create-new-group-icon span {
+    font-size: 1.5rem;
+    color: #f59e0b;
+}
+
+.create-new-group-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 0.5rem 0;
+}
+
+.create-new-group-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.empty-state {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.empty-state-text {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.quick-stats-section {
+    margin-top: 3rem;
+}
+
+.quick-stats-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.quick-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.quick-stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.quick-stat-number {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: #f59e0b;
+    margin-bottom: 0.5rem;
+}
+
+.quick-stat-label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.group-card,
+.create-new-group-card {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Responsive design */
+@media (min-width: 640px) {
+    .groups-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .groups-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
