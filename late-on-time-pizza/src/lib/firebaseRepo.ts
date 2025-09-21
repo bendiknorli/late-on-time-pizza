@@ -319,14 +319,17 @@ export class FirebaseRepo {
     }
 
     // Settings
-    async setGroupLogK(groupId: string, logK: number): Promise<void> {
+    async setGroupCurveShift(
+        groupId: string,
+        curveShift: number
+    ): Promise<void> {
         const group = await this.getGroup(groupId);
         if (!group) throw new Error("Group not found");
 
         await this.updateGroup(groupId, {
             settings: {
                 ...group.settings,
-                LOG_K: logK,
+                curveShift: curveShift,
             },
         });
     }

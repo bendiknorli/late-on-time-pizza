@@ -59,7 +59,7 @@ export const repo = {
                 emoji: "🎨",
                 adminId: "m1",
                 members: demoMembers,
-                settings: { LOG_K: 2 },
+                settings: { curveShift: 0.3 },
             },
         ];
         const meetings: Meeting[] = [];
@@ -91,7 +91,7 @@ export const repo = {
             color: input.color,
             adminId: input.adminId,
             members: [],
-            settings: { LOG_K: 2, allowEveryoneEnterMinutes: false },
+            settings: { curveShift: 0.3, allowEveryoneEnterMinutes: false },
         };
         state.groups.push(group);
         save(state);
@@ -162,10 +162,10 @@ export const repo = {
         const state = load();
         const group = state.groups.find((g) => g.id === groupId);
         if (!group) throw new Error("Group not found");
-        const LOG_K = group.settings?.LOG_K ?? 2;
+        const curveShift = group.settings?.curveShift ?? 0.3;
         const entries = group.members.map((m) => {
             const minutes = Math.max(0, Math.round(minutesById[m.id] ?? 0));
-            const slices = slicesForMinutes(minutes, LOG_K);
+            const slices = slicesForMinutes(minutes, { curveShift });
             const updated = addSlices(m.totalPizzas, m.totalSlices, slices);
             m.totalPizzas = updated.totalPizzas;
             m.totalSlices = updated.totalSlices;
@@ -217,11 +217,11 @@ export const repo = {
         save(state);
         return corr;
     },
-    setGroupLogK(groupId: string, LOG_K: number) {
+    setGroupCurveShift(groupId: string, curveShift: number) {
         const state = load();
         const g = state.groups.find((x) => x.id === groupId);
         if (!g) throw new Error("Group not found");
-        g.settings = { ...(g.settings ?? {}), LOG_K };
+        g.settings = { ...(g.settings ?? {}), curveShift };
         save(state);
     },
     setAllowEveryone(groupId: string, allow: boolean) {

@@ -16,22 +16,6 @@ export class FirebaseRealtimeRepo {
         // Auth state tracking can be added here when needed for user-specific filtering
     }
 
-    // Helper method to validate admin permissions (client-side validation)
-    private async validateAdminPermission(
-        groupId: string,
-        userEmail: string
-    ): Promise<boolean> {
-        try {
-            const groups = await this.getGroups();
-            const group = groups.find((g) => g.id === groupId);
-            if (!group?.settings?.adminEmails) return false;
-            return group.settings.adminEmails.includes(userEmail);
-        } catch (error) {
-            console.error("Error validating admin permission:", error);
-            return false;
-        }
-    }
-
     // Groups
     async getGroups(): Promise<Group[]> {
         return new Promise((resolve, reject) => {
